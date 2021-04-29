@@ -10,7 +10,7 @@ unblocked_uncompressed = json.dumps({'name': 'StreamBufferSpec'})
 blocked_uncompressed = json.dumps({
     'name': 'BlockingBufferSpec',
     'blockSize': 64 * 1024,
-    'child': {'name': 'StreamBufferSpec'}
+    'child': {'name': 'StreamBlockBufferSpec'}
 })
 
 fast_codec_spec = json.dumps({
