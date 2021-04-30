@@ -7,6 +7,7 @@ PROF_ARGS = '-agentpath:/home/leo/YourKit-JavaProfiler-2021.3/bin/linux-x86-64/l
 SPARK_CONF = {
     'spark.driver.extraJavaOptions': PROF_ARGS,
     'spark.executor.extraJavaOptions': PROF_ARGS,
+    'spark.driver.memory': '100G',
 }
 
 hl.init(default_reference='GRCh38', spark_conf=SPARK_CONF)
