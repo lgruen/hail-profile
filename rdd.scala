@@ -1,7 +1,6 @@
 import is.hail.HailContext
 import is.hail.backend.spark.SparkBackend
 import is.hail.expr.ir._
-import is.hail.variant.Locus
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.util.SizeEstimator
 
