@@ -3,7 +3,7 @@ import is.hail.expr.ir._
 import org.apache.spark.storage.StorageLevel
 
 val hs = new HailSuite
-val tir = TableRead.native(hs.fs, "/Users/leo/tmp/gnomad_popmax_af_head.ht")
+val tir = TableRead.native(hs.fs, "/home/leo/gnomad_popmax_af.ht")
 val tv = ExecuteContext.scoped() { ctx => Interpret(tir, ctx) }
 val cached = tv.rdd.persist(StorageLevel.MEMORY_ONLY)
 println("Caching...")
