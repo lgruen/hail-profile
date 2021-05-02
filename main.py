@@ -1,4 +1,3 @@
-import random
 import time
 import hail as hl
 
@@ -15,8 +14,8 @@ hl.init(default_reference='GRCh38', spark_conf=SPARK_CONF)
 ht = hl.read_table('/home/leo/gnomad_popmax_af.ht').cache()
 ht.count()  # Force cache to take effect.
 
-while True:
-    threshold = random.random() * 0.01
+for t in range(10):
+    threshold = t * 1e-4
     start_time = time.time()
     print(threshold, ht.filter(ht.AF < threshold).count())
     print(time.time() - start_time, 's')
