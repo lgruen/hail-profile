@@ -8,7 +8,7 @@ import org.apache.spark.sql.types._
 val backend = SparkBackend(tmpdir = "/tmp", localTmpdir = "file:///tmp")
 val hc = HailContext(backend, logFile = "/tmp/hail.log")
 
-val tir = TableRead.native(backend.fs, "/Users/leo/tmp/gnomad_popmax_af_head.ht")
+val tir = TableRead.native(backend.fs, "/home/leo/gnomad_popmax_af.ht")
 val tv = ExecuteContext.scoped() { ctx => Interpret(tir, ctx) }
 
 val mapped = tv.rdd.map(row => {
@@ -23,4 +23,4 @@ val schema = new StructType()
 
 val df = backend.sparkSession.createDataFrame(mapped, schema)
 
-df.write.parquet("/Users/leo/tmp/gnomad_popmax_af_head.parquet")
+df.write.parquet("/home/leo/gnomad_popmax_af.parquet")
